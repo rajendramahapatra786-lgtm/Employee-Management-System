@@ -1,0 +1,59 @@
+/* ================= PROFILE PAGE ================= */
+
+#profileCard {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+}
+
+/* Employee Name Header */
+#profileCard h3:first-child {
+    font-size: 22px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+/* Section Titles */
+#profileCard h3:not(:first-child) {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2563eb;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+}
+
+/* Profile Info Text */
+#profileCard p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #334155;
+}
+
+/* Salary Highlight */
+#profileCard p strong {
+    color: #0f172a;
+}
+
+/* Salary Section Special Highlight */
+#profileCard p:last-child {
+    font-size: 16px;
+    font-weight: bold;
+    color: #16a34a;
+}
+
+/* Horizontal Line Styling */
+#profileCard hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    #profileCard {
+        padding: 20px;
+    }
+}

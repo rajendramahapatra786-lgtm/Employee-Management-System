@@ -1,34 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Management System</title>
-    <link rel="stylesheet" href="style.css">
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
-    <h1>Employee Management System</h1>
+    <!-- Navbar Component -->
+    <div id="navbar"></div>
 
-    <!-- Add Employee Form -->
-    <div class="form-container">
-        <h2>Add Employee</h2>
+    <div class="container">
 
-        <input type="text" id="id" placeholder="Employee ID">
-        <input type="text" id="name" placeholder="Employee Name">
-        <input type="number" id="salary" placeholder="Salary">
-        <input type="text" id="department" placeholder="Department">
+        <!-- Sidebar Component -->
+        <div id="sidebar"></div>
 
-        <button onclick="addEmployee()">Add Employee</button>
+        <!-- Main Content -->
+        <div class="main-content">
+
+            <h2>HR Dashboard</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+                    <h3>Total Employees</h3>
+                    <p id="totalEmployees">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Salary Expense</h3>
+                    <p>₹ <span id="totalSalary">0</span></p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Employees</h3>
+                    <p id="activeEmployees">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Average Rating</h3>
+                    <p id="avgRating">0</p>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Employee List -->
-    <div class="display-container">
-        <h2>Employee List</h2>
-        <div id="output"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/dashboard.js"></script>
 
 </body>
 </html>

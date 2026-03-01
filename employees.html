@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Employees</title>
+    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+
+    <div id="navbar"></div>
+
+    <div class="container">
+
+        <div id="sidebar"></div>
+
+        <div class="main-content">
+
+            <h2>All Employees</h2>
+
+            <!-- Search -->
+            <input type="text" id="searchInput" placeholder="Search by Name..." style="padding:8px; margin:15px 0; width:250px;">
+
+            <!-- Table -->
+            <table border="1" width="100%" cellpadding="10" style="background:white; border-collapse: collapse;">
+                <thead style="background:#1e293b; color:white;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="employeeTableBody">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <script src="js/components.js"></script>
+    <script src="js/employees.js"></script>
+
+</body>
+</html>
