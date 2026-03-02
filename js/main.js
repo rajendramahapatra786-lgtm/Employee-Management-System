@@ -1,52 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    const form = document.getElementById("employeeForm");
-
-    if (form) {
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            let employees = JSON.parse(localStorage.getItem("employees")) || [];
-
-            let basicSalary = Number(document.getElementById("basicSalary").value);
-            let bonus = Number(document.getElementById("bonus").value);
-            let overtime = Number(document.getElementById("overtime").value);
-
-            let netSalary = basicSalary + bonus + overtime;
-
-            let newEmployee = {
-                id: document.getElementById("empId").value,
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                phone: document.getElementById("phone").value,
-                department: document.getElementById("department").value,
-                designation: document.getElementById("designation").value,
-                doj: document.getElementById("doj").value,
-                basicSalary: basicSalary,
-                bonus: bonus,
-                overtime: overtime,
-                netSalary: netSalary,
-                presentDays: document.getElementById("presentDays").value,
-                absentDays: document.getElementById("absentDays").value,
-                leaveBalance: document.getElementById("leaveBalance").value,
-                rating: document.getElementById("rating").value,
-                appraisal: document.getElementById("appraisal").value,
-                promotion: document.getElementById("promotion").value,
-                bankName: document.getElementById("bankName").value,
-                accountNumber: document.getElementById("accountNumber").value,
-                ifsc: document.getElementById("ifsc").value,
-                status: document.getElementById("status").value
-            };
-
-            employees.push(newEmployee);
-
-            localStorage.setItem("employees", JSON.stringify(employees));
-
-            alert("Employee Added Successfully!");
-
-            form.reset();
-            document.getElementById("netSalary").innerText = "0";
-        });
+// Main app - loads navbar and sidebar
+document.addEventListener('DOMContentLoaded', function() {
+    // Check login
+    if(localStorage.getItem('isLoggedIn') !== 'true' && !window.location.pathname.includes('index.html')) {
+        window.location.href = 'index.html';
+        return;
     }
 
+    // Load sidebar
+    fetch('components/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+            setActiveMenu();
+        });
+
+    // Load navbar
+    fetch('components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+            document.getElementById('userName').textContent = localStorage.getItem('currentUser') || 'Admin';
+            setPageTitle();
+        });
 });
+
+// Set active menu based on current page
+function setActiveMenu() {
+    const currentPage = window.location.pathname.split('/').pop();
+    setTimeout(() => {
+        document.querySelectorAll('.sidebar-menu a').forEach(link => {
+            if(link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    }, 100);
+}
+
+// Set page title
+function setPageTitle() {
+    const page = window.location.pathname.split('/').pop();
+    let title = 'Dashboard';
+    
+    if(page.includes('employees')) title = 'Employees';
+    else if(page.includes('attendance')) title = 'Attendance';
+    else if(page.includes('salary')) title = 'Salary';
+    
+    document.getElementById('pageTitle').textContent = title;
+}
+
+// Global logout function
+window.logout = function() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'index.html';
+};

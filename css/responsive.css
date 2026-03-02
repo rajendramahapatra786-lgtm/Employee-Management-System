@@ -1,0 +1,382 @@
+/* Responsive Design for all devices */
+
+/* Tablets and small laptops (992px and below) */
+@media screen and (max-width: 992px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .main-content {
+        margin-left: 200px;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/* Mobile devices (768px and below) */
+@media screen and (max-width: 768px) {
+    /* Sidebar becomes hidden by default */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    /* Top nav adjustments */
+    .top-nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .nav-user {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Stats cards */
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    table {
+        min-width: 600px;
+    }
+    
+    /* Cards */
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+    
+    /* Form rows */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    /* Quick actions */
+    .quick-actions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Welcome banner */
+    .welcome-banner {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .welcome-banner h2 {
+        font-size: 20px;
+    }
+}
+
+/* Small mobile devices (480px and below) */
+@media screen and (max-width: 480px) {
+    /* Login page */
+    .login-box {
+        padding: 25px 20px;
+    }
+    
+    .login-header h2 {
+        font-size: 20px;
+    }
+    
+    /* Top nav */
+    .nav-user {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .nav-user span {
+        font-size: 14px;
+    }
+    
+    /* Stats cards */
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .stat-info p {
+        font-size: 20px;
+    }
+    
+    /* Buttons */
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .card-header .btn-primary {
+        width: 100%;
+    }
+    
+    /* Quick actions */
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Modal */
+    .modal-content {
+        padding: 15px;
+    }
+    
+    .modal-content h2 {
+        font-size: 18px;
+    }
+    
+    /* Action buttons in table */
+    .btn-icon {
+        padding: 8px 12px;
+        margin: 2px;
+        display: inline-block;
+    }
+    
+    /* Status badges */
+    .badge {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
+
+/* Mobile menu toggle button */
+.menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1001;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Print styles for reports */
+@media print {
+    .sidebar,
+    .top-nav,
+    .btn-primary,
+    .btn-secondary,
+    .btn-icon,
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th {
+        background: #f0f0f0;
+        color: black;
+    }
+    
+    td, th {
+        border: 1px solid #ddd;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .modal-content {
+        margin: 20px auto;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* High-resolution screens */
+@media screen and (min-width: 1400px) {
+    .main-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        margin-left: 250px;
+    }
+    
+    .stats-row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    /* You can add dark mode styles here if needed */
+}
+
+/* Fix for iOS devices */
+@supports (-webkit-touch-callout: none) {
+    .sidebar {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .stat-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading spinner for async operations */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.empty-state i {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.empty-state p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2000;
+    animation: slideIn 0.3s ease;
+    max-width: 350px;
+}
+
+.toast.success {
+    border-left: 4px solid var(--success);
+}
+
+.toast.error {
+    border-left: 4px solid var(--danger);
+}
+
+.toast.warning {
+    border-left: 4px solid var(--warning);
+}
+
+.toast i {
+    font-size: 20px;
+}
+
+.toast.success i {
+    color: var(--success);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+

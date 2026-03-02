@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Dashboard</title>
+   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar will be loaded here -->
+        <div id="sidebar"></div>
+        
+        <div class="main-content">
+            <!-- Navbar will be loaded here -->
+            <div id="navbar"></div>
+            
+            <!-- Dashboard Content -->
+            <div class="stats-row" id="statsContainer">
+                <!-- Stats will be loaded here -->
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-history"></i> Recent Activities</h2>
+                </div>
+                <div class="table-responsive">
+                    <table id="activitiesTable">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activitiesList">
+                            <tr><td colspan="2" class="text-center">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

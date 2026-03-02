@@ -1,55 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HR Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS - Login</title>
     <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-
-    <!-- Navbar Component -->
-    <div id="navbar"></div>
-
-    <div class="container">
-
-        <!-- Sidebar Component -->
-        <div id="sidebar"></div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-
-            <h2>HR Dashboard</h2>
-
-            <div class="dashboard-cards">
-
-                <div class="card">
-                    <h3>Total Employees</h3>
-                    <p id="totalEmployees">0</p>
-                </div>
-
-                <div class="card">
-                    <h3>Total Salary Expense</h3>
-                    <p>₹ <span id="totalSalary">0</span></p>
-                </div>
-
-                <div class="card">
-                    <h3>Active Employees</h3>
-                    <p id="activeEmployees">0</p>
-                </div>
-
-                <div class="card">
-                    <h3>Average Rating</h3>
-                    <p id="avgRating">0</p>
-                </div>
-
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-users-cog fa-3x"></i>
+                <h2>Employee Management System</h2>
+                <p>Login to access dashboard</p>
             </div>
-
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Created By <strong>Rajendra</strong></p>
+            </div>
         </div>
-
     </div>
 
-    <script src="js/components.js"></script>
-    <script src="js/dashboard.js"></script>
-
+    <script src="js/login.js"></script>
 </body>
 </html>

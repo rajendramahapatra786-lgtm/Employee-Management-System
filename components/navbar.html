@@ -1,12 +1,13 @@
-<nav class="navbar">
-    
-    <div class="logo">
-        <h2>HR Management</h2>
+<div class="top-nav">
+    <div class="nav-title">
+        <h1 id="pageTitle">Dashboard</h1>
     </div>
-
-    <div class="nav-right">
-        <span id="welcomeUser">Welcome, Admin</span>
-        <button id="logoutBtn">Logout</button>
+    <div class="nav-user">
+        <i class="fas fa-user-circle fa-2x" style="color: #4e73df;"></i>
+        <span id="userName">Admin</span>
+        <span id="currentDateTime"></span>
+        <button class="btn-logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
     </div>
-
-</nav>
+</div>
