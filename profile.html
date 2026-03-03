@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile - Employee Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Container -->
+        <div id="sidebarContainer"></div>
+
+        <div class="main-content">
+            <!-- Navbar Container -->
+            <div id="navbarContainer"></div>
+
+            <!-- Profile Content -->
+            <div class="profile-container">
+                <!-- Alert Message -->
+                <div id="alertMessage" class="alert" style="display: none;"></div>
+
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <div class="profile-cover">
+                        <div class="profile-photo-section">
+                            <div class="profile-photo-wrapper">
+                                <img src="" alt="Profile" class="profile-photo" id="profilePhoto">
+                                <div class="photo-upload-btn" onclick="document.getElementById('fileInput').click()">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="profile-title">
+                                <h2 id="displayName">raja zoya</h2>
+                                <p id="displayEmail">admin@company.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="statEmployees">3</div>
+                            <div class="stat-label">Employees</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="statAttendance">3</div>
+                            <div class="stat-label">Attendance</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="statDays">792</div>
+                            <div class="stat-label">Days Active</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Cards -->
+                <div class="info-cards">
+                    <!-- Personal Info Card -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-user"></i> Personal Information</h3>
+                            <button class="btn-edit" onclick="ProfileManager.editInfo()">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <span class="info-label">First Name:</span>
+                                <span class="info-value" id="viewFirstName">raja</span>
+                                <input type="text" id="editFirstName" class="edit-field" value="raja" style="display: none;">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Last Name:</span>
+                                <span class="info-value" id="viewLastName">zoya</span>
+                                <input type="text" id="editLastName" class="edit-field" value="zoya" style="display: none;">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value" id="viewEmail">admin@company.com</span>
+                                <input type="email" id="editEmail" class="edit-field" value="admin@company.com" style="display: none;">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone:</span>
+                                <span class="info-value" id="viewPhone">6372145896</span>
+                                <input type="text" id="editPhone" class="edit-field" value="6372145896" style="display: none;">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Department:</span>
+                                <span class="info-value" id="viewDept">Administration</span>
+                                <input type="text" id="editDept" class="edit-field" value="Administration" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="card-footer" id="infoButtons">
+                            <button class="btn-save" onclick="ProfileManager.saveInfo()" style="display: none;">Save Changes</button>
+                            <button class="btn-cancel" onclick="ProfileManager.cancelEdit()" style="display: none;">Cancel</button>
+                        </div>
+                    </div>
+
+                    <!-- Change Password Card -->
+                    <div class="info-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-lock"></i> Change Password</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <span class="info-label">Current:</span>
+                                <input type="password" id="currentPass" class="password-field" placeholder="Enter current password">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">New:</span>
+                                <input type="password" id="newPass" class="password-field" placeholder="Enter new password">
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Confirm:</span>
+                                <input type="password" id="confirmPass" class="password-field" placeholder="Confirm new password">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn-update" onclick="ProfileManager.changePassword()">
+                                <i class="fas fa-key"></i> Update Password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+    <script>
+        // Load components
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+            });
+        
+        fetch('components/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbarContainer').innerHTML = data;
+                // Initialize after navbar loads
+                setTimeout(() => {
+                    ProfileManager.loadNavbarProfile();
+                }, 100);
+            });
+
+        // Initialize profile on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            ProfileManager.init();
+        });
+    </script>
+</body>
+</html>

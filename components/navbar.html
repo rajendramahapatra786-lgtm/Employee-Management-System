@@ -3,11 +3,14 @@
         <h1 id="pageTitle">Dashboard</h1>
     </div>
     <div class="nav-user">
-        <i class="fas fa-user-circle fa-2x" style="color: #4e73df;"></i>
-        <span id="userName">Admin</span>
+        <div class="admin-profile" onclick="window.location.href='profile.html'" style="cursor: pointer; display: flex; align-items: center; gap: 10px;">
+            <img src="" alt="Admin" id="navProfilePic" style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid #4e73df;">
+            <span id="userName">raja</span>
+        </div>
         <span id="currentDateTime"></span>
         <button class="btn-logout" onclick="logout()">
             <i class="fas fa-sign-out-alt"></i> Logout
         </button>
     </div>
 </div>
+
