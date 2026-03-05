@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/profile.css">
 </head>
+
 <body>
     <div class="app-container">
         <!-- Sidebar Container -->
@@ -70,32 +72,38 @@
                             <div class="info-row">
                                 <span class="info-label">First Name:</span>
                                 <span class="info-value" id="viewFirstName">raja</span>
-                                <input type="text" id="editFirstName" class="edit-field" value="raja" style="display: none;">
+                                <input type="text" id="editFirstName" class="edit-field" value="raja"
+                                    style="display: none;" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Last Name:</span>
                                 <span class="info-value" id="viewLastName">zoya</span>
-                                <input type="text" id="editLastName" class="edit-field" value="zoya" style="display: none;">
+                                <input type="text" id="editLastName" class="edit-field" value="zoya"
+                                    style="display: none;" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Email:</span>
                                 <span class="info-value" id="viewEmail">admin@company.com</span>
-                                <input type="email" id="editEmail" class="edit-field" value="admin@company.com" style="display: none;">
+                                <input type="email" id="editEmail" class="edit-field" value="admin@company.com"
+                                    style="display: none;">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Phone:</span>
                                 <span class="info-value" id="viewPhone">6372145896</span>
-                                <input type="text" id="editPhone" class="edit-field" value="6372145896" style="display: none;">
+                                <input type="text" id="editPhone" class="edit-field" maxlength="10">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Department:</span>
                                 <span class="info-value" id="viewDept">Administration</span>
-                                <input type="text" id="editDept" class="edit-field" value="Administration" style="display: none;">
+                                <input type="text" id="editDept" class="edit-field" value="Administration"
+                                    style="display: none;" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'')">
                             </div>
                         </div>
                         <div class="card-footer" id="infoButtons">
-                            <button class="btn-save" onclick="ProfileManager.saveInfo()" style="display: none;">Save Changes</button>
-                            <button class="btn-cancel" onclick="ProfileManager.cancelEdit()" style="display: none;">Cancel</button>
+                            <button class="btn-save" onclick="ProfileManager.saveInfo()" style="display: none;">Save
+                                Changes</button>
+                            <button class="btn-cancel" onclick="ProfileManager.cancelEdit()"
+                                style="display: none;">Cancel</button>
                         </div>
                     </div>
 
@@ -107,15 +115,18 @@
                         <div class="card-body">
                             <div class="info-row">
                                 <span class="info-label">Current:</span>
-                                <input type="password" id="currentPass" class="password-field" placeholder="Enter current password">
+                                <input type="password" id="currentPass" class="password-field"
+                                    placeholder="Enter current password">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">New:</span>
-                                <input type="password" id="newPass" class="password-field" placeholder="Enter new password">
+                                <input type="password" id="newPass" class="password-field"
+                                    placeholder="Enter new password">
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Confirm:</span>
-                                <input type="password" id="confirmPass" class="password-field" placeholder="Confirm new password">
+                                <input type="password" id="confirmPass" class="password-field"
+                                    placeholder="Confirm new password">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -137,7 +148,7 @@
             .then(data => {
                 document.getElementById('sidebarContainer').innerHTML = data;
             });
-        
+
         fetch('components/navbar.html')
             .then(response => response.text())
             .then(data => {
@@ -149,9 +160,10 @@
             });
 
         // Initialize profile on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             ProfileManager.init();
         });
     </script>
 </body>
+
 </html>

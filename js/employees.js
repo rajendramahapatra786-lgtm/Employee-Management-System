@@ -70,6 +70,23 @@ function editEmployee(id) {
 
 // Update saveEmployee function to include salary
 function saveEmployee() {
+
+    let name = document.getElementById('empName').value.trim();
+    let salary = document.getElementById('empSalary').value;
+
+    // Name validation (only alphabets)
+    const namePattern = /^[A-Za-z ]+$/;
+
+    if(!namePattern.test(name)){
+        alert("Employee name must contain only alphabets");
+        return;
+    }
+
+    // Salary validation (only positive numbers)
+    if(isNaN(salary) || salary <= 0){
+        alert("Salary must be a positive number");
+        return;
+    }
     const employeeData = {
         name: document.getElementById('empName').value,
         email: document.getElementById('empEmail').value,

@@ -148,27 +148,53 @@ const ProfileManager = {
     },
 
     saveInfo: function() {
-        const updatedData = {
-            firstName: document.getElementById('editFirstName').value,
-            lastName: document.getElementById('editLastName').value,
-            email: document.getElementById('editEmail').value,
-            phone: document.getElementById('editPhone').value,
-            department: document.getElementById('editDept').value,
-            password: this.getPassword(),
-            joinDate: this.getJoinDate()
-        };
-        
-        if (!updatedData.firstName || !updatedData.lastName || !updatedData.email) {
-            this.showAlert('Please fill all required fields', 'error');
-            return;
-        }
-        
-        localStorage.setItem('adminData', JSON.stringify(updatedData));
-        this.loadProfileData();
-        this.loadNavbarProfile(); // Update navbar with new name
-        this.cancelEdit();
-        this.showAlert('Profile updated successfully!', 'success');
-    },
+
+    const firstName = document.getElementById('editFirstName').value.trim();
+    const lastName = document.getElementById('editLastName').value.trim();
+    const email = document.getElementById('editEmail').value.trim();
+    const phone = document.getElementById('editPhone').value.trim();
+    const department = document.getElementById('editDept').value.trim();
+
+    // Regex patterns
+    const namePattern = /^[A-Za-z]+$/;   // only alphabets
+    const phonePattern = /^[0-9]+$/;     // only digits
+
+    // First Name Validation
+    if (!namePattern.test(firstName)) {
+        this.showAlert('First name must contain only alphabets', 'error');
+        return;
+    }
+
+    // Last Name Validation
+    if (!namePattern.test(lastName)) {
+        this.showAlert('Last name must contain only alphabets', 'error');
+        return;
+    }
+
+    // Phone Validation
+    if (!phonePattern.test(phone)) {
+        this.showAlert('Phone number must contain only digits', 'error');
+        return;
+    }
+
+    const updatedData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        department: department,
+        password: this.getPassword(),
+        joinDate: this.getJoinDate()
+    };
+
+    localStorage.setItem('adminData', JSON.stringify(updatedData));
+
+    this.loadProfileData();
+    this.loadNavbarProfile();
+    this.cancelEdit();
+
+    this.showAlert('Profile updated successfully!', 'success');
+},
 
     cancelEdit: function() {
         document.querySelectorAll('.info-value').forEach(el => el.style.display = 'block');
