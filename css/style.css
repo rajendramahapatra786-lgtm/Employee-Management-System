@@ -65,6 +65,7 @@ body {
 
 .form-group {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .form-group label {
@@ -84,11 +85,12 @@ body {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 40px 12px 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
     transition: all 0.3s;
+    height: 45px;
 }
 
 .form-group input:focus,
@@ -97,6 +99,48 @@ body {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.1);
+}
+
+/* Password toggle button - FIXED VERSION */
+.password-toggle-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-10%);
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.password-toggle-btn:hover {
+    color: var(--primary) !important;
+}
+
+.password-toggle-btn img {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.password-toggle-btn:hover img {
+    opacity: 1;
+}
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 40px;
 }
 
 .btn-login {
@@ -493,7 +537,7 @@ tr:hover td {
     color: var(--warning);
 }
 
-/* ========== RRESIGNED EMPLOYEE ROW STYLING ========== */
+/* ========== RESIGNED EMPLOYEE ROW STYLING ========== */
 .Resigned-employee-row {
     background-color: #fff0f0 !important;
     border-left: 3px solid #dc3545;
@@ -506,10 +550,6 @@ tr:hover td {
 .Resigned-employee-row td:first-child {
     font-weight: 500;
     color: #dc3545;
-}
-
-/* Tooltip for deleted employees */
-.Resigned-employee-row td:first-child {
     position: relative;
 }
 
@@ -526,7 +566,7 @@ tr:hover td {
     bottom: 100%;
     z-index: 1000;
 }
-/* Force red color for resigned rows */
+
 table tbody tr.resigned-employee-row,
 table tbody tr.resigned-employee-row td {
     background-color: #ffebee !important;
