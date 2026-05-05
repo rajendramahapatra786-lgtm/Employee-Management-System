@@ -24,7 +24,7 @@ function loadNavbarProfile() {
         }
     } else {
         console.log('❌ navPic element NOT FOUND! Will try again...');
-        setTimeout(loadNavbarProfile, 500);
+        if (!navPic) return;
         return;
     }
     
@@ -55,18 +55,18 @@ window.addEventListener('storage', function(e) {
 });
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 DOM loaded');
-    loadNavbarProfile();
-    updateDateTime();
-    setInterval(updateDateTime, 1000);
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//     console.log('🚀 DOM loaded');
+//     loadNavbarProfile();
+//     updateDateTime();
+//     setInterval(updateDateTime, 1000);
+// });
 
 // Also run when window is fully loaded
-window.addEventListener('load', function() {
-    console.log('📄 Window loaded');
-    loadNavbarProfile();
-});
+// window.addEventListener('load', function() {
+//     console.log('📄 Window loaded');
+//     loadNavbarProfile();
+// });
 
 // Logout function
 window.logout = function() {

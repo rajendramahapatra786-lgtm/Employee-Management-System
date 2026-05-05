@@ -16,12 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load navbar
     fetch('components/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-            document.getElementById('userName').textContent = localStorage.getItem('currentUser') || 'Admin';
-            setPageTitle();
-        });
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+
+        // ✅ RUN AFTER navbar is inserted
+        loadNavbarProfile();
+        updateDateTime();
+        if (!window.dateTimeInterval) {
+    window.dateTimeInterval = setInterval(updateDateTime, 1000);
+}
+
+        document.getElementById('userName').textContent =
+            localStorage.getItem('currentUser') || 'Admin';
+
+        setPageTitle();
+    });
 });
 
 // Set active menu based on current page
