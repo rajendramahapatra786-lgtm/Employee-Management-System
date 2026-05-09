@@ -110,8 +110,11 @@ const ProfileManager = {
         
         // Update header
         document.getElementById('displayName').textContent = adminData.firstName + ' ' + adminData.lastName;
-        document.getElementById('displayEmail').textContent = adminData.email;
-        
+const emailEl = document.getElementById('displayEmail');
+
+if(emailEl){
+    emailEl.textContent = adminData.email;
+}        
         // Update view fields
         document.getElementById('viewFirstName').textContent = adminData.firstName;
         document.getElementById('viewLastName').textContent = adminData.lastName;
