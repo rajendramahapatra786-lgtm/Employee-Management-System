@@ -158,6 +158,33 @@ if(emailEl){
     const phone = document.getElementById('editPhone').value.trim();
     const department = document.getElementById('editDept').value.trim();
 
+
+    // Empty field validation
+    if (!firstName) {
+        this.showAlert('Please enter first name', 'error');
+        return;
+    }
+
+    if (!lastName) {
+        this.showAlert('Please enter last name', 'error');
+        return;
+    }
+
+    if (!email) {
+        this.showAlert('Please enter email address', 'error');
+        return;
+    }
+
+    if (!phone) {
+        this.showAlert('Please enter phone number', 'error');
+        return;
+    }
+
+    if (!department) {
+        this.showAlert('Please enter department', 'error');
+        return;
+    }
+
     // Regex patterns
     const namePattern = /^[A-Za-z]+$/;   // only alphabets
     const phonePattern = /^[0-9]+$/;     // only digits
