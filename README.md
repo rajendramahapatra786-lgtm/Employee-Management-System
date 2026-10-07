@@ -6,7 +6,7 @@ A modern, browser-based **Employee Management System** built with
 The application provides a complete frontend workflow for managing
 employees, attendance, salaries, dashboard statistics, activity logs,
 and employee status. Data is stored locally in the browser using
-**LocalStorage**, so no backend server or database is required.
+**LocalStorage**, So no backend server or database is required.
 
 > **Project Type:** Frontend Web Application\
 > **Storage:** Browser LocalStorage\
